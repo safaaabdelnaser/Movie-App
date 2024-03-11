@@ -25,3 +25,11 @@ function validate_email(email) {
     return false;
   }
 }
+function validate_password(password) {
+  // Firebase only accepts lengths greater than 6
+  if (password < 6) {
+    return false;
+  } else {
+    return true;
+  }
+}
