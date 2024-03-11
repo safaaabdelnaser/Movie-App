@@ -14,6 +14,58 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const database = firebase.database();
 
+// register function
+function register() {
+  // Get all our input fields
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+  var full_name = document.getElementById("full_name").value;
+
+  // Validate input fields
+  if (!validate_email(email)) {
+    alert("Email is not valid!");
+    return;
+  }
+
+  if (!validate_password(password)) {
+    alert("Password is not valid!");
+    return;
+  }
+
+  if (!validate_field(full_name)) {
+    alert("Full Name is not valid!");
+    return;
+  }
+
+  // createuser
+  auth
+    .createUserWithEmailAndPassword(email, password)
+    .then(function () {
+      // Declare user variable
+      var user = auth.currentUser;
+
+      // Add this user to Firebase Database
+      var database_ref = database.ref();
+
+      // Create User data
+      var user_data = {
+        email: email,
+        full_name: full_name,
+        last_login: Date.now(),
+      };
+
+      // Push to Firebase Database
+      database_ref.child("users/" + user.uid).set(user_data);
+      // Done
+      alert("User Created!!");
+    })
+    .catch(function (error) {
+      // Firebase will use this to alert of its errors
+      var error_message = error.message;
+      alert(error_message);
+    });
+}
+
 // Validate Functions
 function validate_email(email) {
   expression = /^[^@]+@\w+(\.\w+)+\w$/;
