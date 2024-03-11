@@ -37,12 +37,12 @@ function register() {
     return;
   }
 
-  // createuser
+  // Create user
   auth
     .createUserWithEmailAndPassword(email, password)
-    .then(function () {
-      // Declare user variable
-      var user = auth.currentUser;
+    .then(function (userCredential) {
+      // Get the authenticated user
+      var user = userCredential.user;
 
       // Add this user to Firebase Database
       var database_ref = database.ref();
@@ -56,8 +56,16 @@ function register() {
 
       // Push to Firebase Database
       database_ref.child("users/" + user.uid).set(user_data);
+
+      // Clear input fields
+      document.getElementById("email").value = "";
+      document.getElementById("password").value = "";
+      document.getElementById("full_name").value = "";
+
       // Done
       alert("User Created!!");
+      // Redirect to movies page
+      window.location.href = "../pages/movies.html";
     })
     .catch(function (error) {
       // Firebase will use this to alert of its errors
