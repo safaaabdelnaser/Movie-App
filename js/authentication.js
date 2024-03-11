@@ -73,6 +73,45 @@ function register() {
       alert(error_message);
     });
 }
+// login function
+function login() {
+  // Get all our input fields
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+
+  // Validate input fields
+  if (!validate_email(email) || !validate_password(password)) {
+    alert("Email or Password is not valid!");
+    return;
+  }
+
+  auth
+    .signInWithEmailAndPassword(email, password)
+    .then(function () {
+      // Declare user variable
+      var user = auth.currentUser;
+
+      // Add this user to Firebase Database
+      var database_ref = database.ref();
+
+      // Create User data
+      var user_data = {
+        last_login: Date.now(),
+      };
+
+      // Push to Firebase Database
+      database_ref.child("users/" + user.uid).update(user_data);
+
+      // Redirect to movies page
+      window.location.href = "../pages/movies.html";
+    })
+    .catch(function (error) {
+      var error_code = error.code;
+      if (error_code === "auth/internal-error") {
+        alert("Email or Password is invalid!");
+      }
+    });
+}
 
 // Validate Functions
 function validate_email(email) {
