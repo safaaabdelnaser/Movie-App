@@ -13,3 +13,15 @@ firebase.initializeApp(firebaseConfig);
 // Initialize variables
 const auth = firebase.auth();
 const database = firebase.database();
+
+// Validate Functions
+function validate_email(email) {
+  expression = /^[^@]+@\w+(\.\w+)+\w$/;
+  if (expression.test(email) == true) {
+    // Email is good
+    return true;
+  } else {
+    // Email is not good
+    return false;
+  }
+}
