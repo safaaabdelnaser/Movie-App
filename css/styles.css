@@ -56,7 +56,7 @@ body {
       text-transform: uppercase;
       letter-spacing: 1px;
       background: -webkit-linear-gradient(25deg, var(--secandryColor));
-      -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .form_content_container {
