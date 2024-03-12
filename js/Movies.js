@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const likeButton = document.createElement("button");
       likeButton.innerHTML = '<img src="../assets/images/like.png">';
       likeButton.addEventListener("click", () => {
-        // Code to handle liking the movie goes here
         console.log(`You liked ${movie.title}`);
+        likeButton.classList.toggle("liked");
       });
       const commentButton = document.createElement("button");
       commentButton.innerHTML = '<img src="../assets/images/comment.png">';

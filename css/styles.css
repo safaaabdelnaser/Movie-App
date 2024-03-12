@@ -189,6 +189,9 @@ header {
         height: 35px;
       }
     }
+    button.liked {
+      background: rgb(12, 12, 248);
+    }
   }
 }
 
