@@ -26,12 +26,35 @@ document.addEventListener("DOMContentLoaded", function () {
     movies.forEach((movie) => {
       const card = document.createElement("div");
       card.classList.add("card");
-      const title = document.createElement("h2");
+      const title = document.createElement("p");
       title.textContent = movie.title;
       const image = document.createElement("img");
       image.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+      const likeButton = document.createElement("button");
+      likeButton.textContent = "Like";
+      likeButton.addEventListener("click", () => {
+        // Code to handle liking the movie goes here
+        console.log(`You liked ${movie.title}`);
+      });
+      const commentButton = document.createElement("button");
+      commentButton.textContent = "Comment";
+      commentButton.addEventListener("click", () => {
+        // Code to handle commenting on the movie goes here
+        console.log(`You commented on ${movie.title}`);
+      });
+
+      const favoriteButton = document.createElement("button");
+      favoriteButton.textContent = "Favorite";
+      favoriteButton.addEventListener("click", () => {
+        // Code to handle favoriting the movie goes here
+        console.log(`You favorited ${movie.title}`);
+      });
+
       card.appendChild(title);
       card.appendChild(image);
+      card.appendChild(likeButton);
+      card.appendChild(commentButton);
+      card.appendChild(favoriteButton);
       moviesContainer.appendChild(card);
     });
   }
