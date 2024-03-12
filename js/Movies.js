@@ -31,20 +31,20 @@ document.addEventListener("DOMContentLoaded", function () {
       const image = document.createElement("img");
       image.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
       const likeButton = document.createElement("button");
-      likeButton.textContent = "Like";
+      likeButton.innerHTML = '<img src="../assets/images/like.png">';
       likeButton.addEventListener("click", () => {
         // Code to handle liking the movie goes here
         console.log(`You liked ${movie.title}`);
       });
       const commentButton = document.createElement("button");
-      commentButton.textContent = "Comment";
+      commentButton.innerHTML = '<img src="../assets/images/comment.png">';
       commentButton.addEventListener("click", () => {
         // Code to handle commenting on the movie goes here
         console.log(`You commented on ${movie.title}`);
       });
 
       const favoriteButton = document.createElement("button");
-      favoriteButton.textContent = "Favorite";
+      favoriteButton.innerHTML = '<img src="../assets/images/favorite.png">';
       favoriteButton.addEventListener("click", () => {
         // Code to handle favoriting the movie goes here
         console.log(`You favorited ${movie.title}`);
