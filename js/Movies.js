@@ -12,10 +12,10 @@ fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`)
       card.classList.add("card");
       const title = document.createElement("h2");
       title.textContent = movie.title;
-      const overview = document.createElement("p");
-      overview.textContent = movie.overview;
+      const image = document.createElement("img");
+      image.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
       card.appendChild(title);
-      card.appendChild(overview);
+      card.appendChild(image);
       moviesContainer.appendChild(card);
     });
   })
