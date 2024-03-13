@@ -39,15 +39,40 @@ document.addEventListener("DOMContentLoaded", function () {
       const commentButton = document.createElement("button");
       commentButton.innerHTML = '<img src="../assets/images/comment.png">';
       commentButton.addEventListener("click", () => {
-        // Code to handle commenting on the movie goes here
         console.log(`You commented on ${movie.title}`);
       });
 
       const favoriteButton = document.createElement("button");
-      favoriteButton.innerHTML = '<img src="../assets/images/favorite.png">';
+      const favoriteIcon = document.createElement("img");
+      favoriteIcon.src = "../assets/images/favorite.png";
+      favoriteButton.appendChild(favoriteIcon);
       favoriteButton.addEventListener("click", () => {
-        // Code to handle favoriting the movie goes here
-        console.log(`You favorited ${movie.title}`);
+        const favoriteMovies =
+          JSON.parse(localStorage.getItem("favoriteMovies")) || [];
+        const isAlreadyFavorite = favoriteMovies.some(
+          (favoriteMovie) => favoriteMovie.id === movie.id
+        );
+
+        if (!isAlreadyFavorite) {
+          favoriteMovies.push(movie);
+          localStorage.setItem(
+            "favoriteMovies",
+            JSON.stringify(favoriteMovies)
+          );
+          console.log(`You favorited ${movie.title}`);
+          favoriteIcon.src = "../assets/images/favoriteFull.png";
+        } else {
+          // Remove movie from favorites if already favorited
+          const updatedFavorites = favoriteMovies.filter(
+            (favoriteMovie) => favoriteMovie.id !== movie.id
+          );
+          localStorage.setItem(
+            "favoriteMovies",
+            JSON.stringify(updatedFavorites)
+          );
+          console.log(`You unfavorited ${movie.title}`);
+          favoriteIcon.src = "../assets/images/favorite.png";
+        }
       });
 
       card.appendChild(title);
