@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css">"
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/chat.css">
+
     <title>Chat Online</title>
 </head>
 
@@ -22,13 +24,18 @@
             </ul>
         </nav>
     </header>
-    <h2>Chat</h2>
-    <form onsubmit="return sendMessage();">
-        <input id="message" placeholder="Enter message" autocomplete="off">
-        <input type="submit" value="send">
-    </form>
-    <ul id="messages">
-    </ul>
+    <!-- <h2>Chat</h2> -->
+    <div class="chat-container">
+        <div class="chat">
+            <ul id="messages">
+            </ul>
+        </div>
+        <form onsubmit="sendMessage();" class="message-form">
+            <input id="message" placeholder="Enter message" autocomplete="off" class="message-input">
+            <input type="submit" value="send" class="send-button">
+        </form>
+
+    </div>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
