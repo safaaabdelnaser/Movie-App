@@ -35,6 +35,15 @@ document.addEventListener("DOMContentLoaded", function () {
       const likeIcon = document.createElement("img");
       likeIcon.src = "../assets/images/unlike.png";
       likeButton.appendChild(likeIcon);
+      likeButton.addEventListener("click", () => {
+        if (likeIcon.src.endsWith("unlike.png")) {
+          likeIcon.src = "../assets/images/like1.png";
+          console.log(`You liked ${movie.title}`);
+        } else {
+          likeIcon.src = "../assets/images/unlike.png";
+          console.log(`You  unLiked ${movie.title}`);
+        }
+      });
       // comment button
       const commentButton = document.createElement("button");
       commentButton.innerHTML = '<img src="../assets/images/comment.png">';
@@ -55,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
           (favoriteMovie) => favoriteMovie.id === movieId
         );
       }
-
       // Toggle favorite status
       function toggleFavorite(movie) {
         const movieId = movie.id;
@@ -85,7 +93,6 @@ document.addEventListener("DOMContentLoaded", function () {
           favoriteIcon.src = "../assets/images/favorite.png";
         }
       }
-
       // Event listener for clicking the favorite button
       favoriteButton.addEventListener("click", () => {
         toggleFavorite(movie);
@@ -94,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (isMovieFavorite(movie.id)) {
         favoriteIcon.src = "../assets/images/favoriteFull.png";
       }
+
       card.appendChild(title);
       card.appendChild(image);
       card.appendChild(likeButton);
