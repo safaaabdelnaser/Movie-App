@@ -1,12 +1,25 @@
-var firebaseConfig = {
-  apiKey: "AIzaSyC5N2hdVrUxwSFaO_CZ_R_tOk9U_il01zo",
-  authDomain: "movie-app-fa88c.firebaseapp.com",
-  projectId: "movie-app-fa88c",
-  storageBucket: "movie-app-fa88c.appspot.com",
-  messagingSenderId: "740073435661",
-  appId: "1:740073435661:web:12a0c93fca229c6431db44",
-  measurementId: "G-NGYMYW7RT2",
+const firebaseConfig = {
+  apiKey: "AIzaSyCWruOkOTRLDk8MlXjaVokHtkd8lZfqpjc",
+  authDomain: "chat-80e5a.firebaseapp.com",
+  projectId: "chat-80e5a",
+  storageBucket: "chat-80e5a.appspot.com",
+  messagingSenderId: "930803567468",
+  appId: "1:930803567468:web:3c4a54c28d19c5727bc149",
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-var myName = prompt("Enter your name");
+let myName = prompt("Please enter your name:");
+console.log("Hello, " + myName + "!");
+
+function sendMessage() {
+  // get message
+  var YourMessage = document.getElementById("message").value;
+  // save in database
+  firebase.database().ref("messages").push().set({
+    sender: myName,
+    message: YourMessage,
+  });
+  // prevent form from submitting
+  return false;
+}
