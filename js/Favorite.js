@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
     favoriteMoviesContainer.innerHTML = "";
     movies.forEach((movie) => {
       const card = document.createElement("div");
+      const buttonsContainer = document.createElement("div");
+      buttonsContainer.classList.add("card-buttons");
       card.classList.add("card");
       const title = document.createElement("span");
       title.textContent = movie.title;
@@ -26,8 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const image = document.createElement("img");
       image.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+      card.appendChild(buttonsContainer);
       card.appendChild(title);
-      card.appendChild(favoriteButton);
+      buttonsContainer.appendChild(favoriteButton);
       card.appendChild(image);
       favoriteMoviesContainer.appendChild(card);
     });

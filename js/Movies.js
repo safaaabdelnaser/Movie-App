@@ -25,7 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     movies.forEach((movie) => {
       const card = document.createElement("div");
+      const buttonsContainer = document.createElement("div");
       card.classList.add("card");
+      buttonsContainer.classList.add("card-buttons");
       const title = document.createElement("p");
       title.textContent = movie.title;
       const image = document.createElement("img");
@@ -104,9 +106,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
       card.appendChild(title);
       card.appendChild(image);
-      card.appendChild(likeButton);
-      card.appendChild(commentButton);
-      card.appendChild(favoriteButton);
+      buttonsContainer.appendChild(likeButton);
+      buttonsContainer.appendChild(commentButton);
+      buttonsContainer.appendChild(favoriteButton);
+      card.appendChild(buttonsContainer);
       moviesContainer.appendChild(card);
     });
   }
