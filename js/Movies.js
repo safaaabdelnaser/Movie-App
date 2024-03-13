@@ -90,7 +90,10 @@ document.addEventListener("DOMContentLoaded", function () {
       favoriteButton.addEventListener("click", () => {
         toggleFavorite(movie);
       });
-
+      // Check and update favorite icon status on page load
+      if (isMovieFavorite(movie.id)) {
+        favoriteIcon.src = "../assets/images/favoriteFull.png";
+      }
       card.appendChild(title);
       card.appendChild(image);
       card.appendChild(likeButton);
