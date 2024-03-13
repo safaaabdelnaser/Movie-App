@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const image = document.createElement("img");
       image.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
       const likeButton = document.createElement("button");
+      // buttons
       likeButton.innerHTML = '<img src="../assets/images/like.png">';
       likeButton.addEventListener("click", () => {
         console.log(`You liked ${movie.title}`);
@@ -70,8 +71,8 @@ document.addEventListener("DOMContentLoaded", function () {
             "favoriteMovies",
             JSON.stringify(updatedFavorites)
           );
-          console.log(`You unfavorited ${movie.title}`);
           favoriteIcon.src = "../assets/images/favorite.png";
+          console.log(`You unfavorited ${movie.title}`);
         }
       });
 
