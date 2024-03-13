@@ -12,11 +12,17 @@ document.addEventListener("DOMContentLoaded", function () {
     movies.forEach((movie) => {
       const card = document.createElement("div");
       card.classList.add("card");
-      const title = document.createElement("p");
+      const title = document.createElement("span");
       title.textContent = movie.title;
+      const favoriteButton = document.createElement("button");
+      const favoriteIcon = document.createElement("img");
+      favoriteIcon.src = "../assets/images/favoriteFull.png";
+      favoriteButton.appendChild(favoriteIcon);
+
       const image = document.createElement("img");
       image.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
       card.appendChild(title);
+      card.appendChild(favoriteButton);
       card.appendChild(image);
       favoriteMoviesContainer.appendChild(card);
     });
