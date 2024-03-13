@@ -23,3 +23,16 @@ function sendMessage() {
   // prevent form from submitting
   return false;
 }
+firebase
+  .database()
+  .ref("messages")
+  .on("child_added", function (snapshot) {
+    var html = "";
+    // give each message a unique ID
+    html += "<li id='message-" + snapshot.key + "'>";
+
+    // show delete button if message is sent by me
+    html += snapshot.val().sender + ": " + snapshot.val().message;
+    html += "</li>";
+    document.getElementById("messages").innerHTML += html;
+  });
