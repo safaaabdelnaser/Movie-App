@@ -37,20 +37,21 @@ firebase
     // give each message a unique ID
     html += "<li id='message-" + snapshot.key + "'>";
     // show delete button if message is sent by me
+    html += "<h5>" + snapshot.val().sender + "</h5>" + snapshot.val().message;
+    // show delete button if message is sent by me
     if (snapshot.val().sender == myName) {
       html +=
         "<button data-id='" +
         snapshot.key +
         "' onclick='deleteMessage(this);'>";
-      html += "Delete";
+      html += "<img src='../assets/images/delete.png' width='20'/>";
       html += "</button>";
     }
-    // show delete button if message is sent by me
-    html += "<h5>" + snapshot.val().sender + "</h5>" + snapshot.val().message;
     html += "</li>";
     document.getElementById("messages").innerHTML += html;
     document.getElementById("message").value = "";
   });
+// to delete messages
 function deleteMessage(self) {
   // get message ID
   var messageId = self.getAttribute("data-id");

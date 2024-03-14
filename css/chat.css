@@ -20,9 +20,14 @@
       border-radius: 6px;
       width: fit-content;
       color: white;
-      padding: 2px 25px 2px 5px;
+      padding: 2px 5px 2px 5px;
       h5 {
         color: black;
+      }
+      button {
+        background: transparent;
+        margin-left: 20px;
+        cursor: pointer;
       }
     }
   }
