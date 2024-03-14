@@ -11,9 +11,10 @@ The following tools use in Coding
 ## Description
 
 A simulation of client side Movies app website with features
-1.view movies with a filter to toggle between (top movies - upcoming movies - now playing movies)
-2.add and Remove of Favorite movies and Likes .
-3.simple chat with online users by using realtime database (firebase).
+
+- view movies with a filter to toggle between (top movies - upcoming movies - now playing movies)
+- add and Remove of Favorite movies and Likes .
+- simple chat with online users by using realtime database (firebase).
 
 ## Linke of Website
 
