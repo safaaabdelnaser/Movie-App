@@ -24,17 +24,19 @@
             </ul>
         </nav>
     </header>
-    <!-- <h2>Chat</h2> -->
-    <div class="chat-container">
-        <div class="chat">
-            <ul id="messages">
-            </ul>
-        </div>
-        <form onsubmit="sendMessage(event);" class="message-form">
-            <input id="message" placeholder="Enter message" autocomplete="off" class="message-input">
-            <input type="submit" value="send" class="send-button">
-        </form>
+    <div>
+        <h2>Online Chat</h2>
+        <div class="chat-container">
+            <div class="chat">
+                <ul id="messages">
+                </ul>
+            </div>
+            <form onsubmit="sendMessage(event);" class="message-form">
+                <input id="message" placeholder="Enter message" autocomplete="off" class="message-input" required>
+                <input type="submit" value="send" class="send-button">
+            </form>
 
+        </div>
     </div>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>

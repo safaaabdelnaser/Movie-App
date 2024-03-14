@@ -216,7 +216,11 @@ header {
     color: var(--prpuleColor);
   }
 }
-
+#nofavorite-image {
+  width: 40%;
+  border-radius: 10px;
+  box-shadow: #ce356d;
+}
 @media only screen and (max-width: 1330px) {
   .container {
     margin-top: 178rem;
