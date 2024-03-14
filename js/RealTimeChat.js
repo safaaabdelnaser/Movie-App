@@ -12,7 +12,7 @@ firebase.initializeApp(firebaseConfig);
 var userDataString = localStorage.getItem("currentUser");
 if (userDataString) {
   var userData = JSON.parse(userDataString);
-  var myName = userData.full_name;
+  var myName = userData.full_name || userData;
   console.log(userData.email);
 } else {
   console.log("User data not found in localStorage");

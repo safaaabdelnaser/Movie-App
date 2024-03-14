@@ -79,7 +79,7 @@ function login() {
   // Get all our input fields
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
-
+  var username = email.substring(0, email.indexOf("@"));
   // Validate input fields
   if (!validate_email(email) || !validate_password(password)) {
     alert("Email or Password is not valid!");
@@ -102,7 +102,7 @@ function login() {
 
       // Push to Firebase Database
       database_ref.child("users/" + user.uid).update(user_data);
-      localStorage.setItem("currentUser", JSON.stringify(user));
+      localStorage.setItem("currentUser", JSON.stringify(username));
 
       // Redirect to movies page
       window.location.href = "../pages/movies.html";
