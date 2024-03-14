@@ -17,6 +17,7 @@ if (userDataString) {
 } else {
   console.log("User data not found in localStorage");
 }
+document.getElementById("username").innerHTML = ` ${userData.full_name}`;
 function sendMessage(event) {
   event.preventDefault();
   // get message
@@ -65,5 +66,5 @@ firebase
   .on("child_removed", function (snapshot) {
     // remove message
     document.getElementById("message-" + snapshot.key).innerHTML =
-      "This message has been removed";
+      "You deleted this message";
   });
