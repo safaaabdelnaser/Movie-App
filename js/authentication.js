@@ -56,6 +56,7 @@ function register() {
 
       // Push to Firebase Database
       database_ref.child("users/" + user.uid).set(user_data);
+      localStorage.setItem("currentUser", JSON.stringify(user_data));
 
       // Clear input fields
       document.getElementById("email").value = "";
@@ -101,6 +102,7 @@ function login() {
 
       // Push to Firebase Database
       database_ref.child("users/" + user.uid).update(user_data);
+      localStorage.setItem("currentUser", JSON.stringify(user));
 
       // Redirect to movies page
       window.location.href = "../pages/movies.html";
