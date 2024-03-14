@@ -219,7 +219,7 @@ header {
 #nofavorite-image {
   width: 40%;
   border-radius: 10px;
-  box-shadow: #ce356d;
+  box-shadow: #250410;
 }
 @media only screen and (max-width: 1330px) {
   .container {

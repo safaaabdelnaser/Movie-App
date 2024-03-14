@@ -17,7 +17,9 @@ if (userDataString) {
 } else {
   console.log("User data not found in localStorage");
 }
-document.getElementById("username").innerHTML = ` ${userData.full_name}`;
+document.getElementById("username").innerHTML = ` ${
+  userData.full_name || userData
+} ❤`;
 function sendMessage(event) {
   event.preventDefault();
   // get message
