@@ -32,7 +32,7 @@ firebase
     html += "<li id='message-" + snapshot.key + "'>";
 
     // show delete button if message is sent by me
-    html += snapshot.val().sender + ": " + snapshot.val().message;
+    html += "<h5>" + snapshot.val().sender + "</h5>" + snapshot.val().message;
     html += "</li>";
     document.getElementById("messages").innerHTML += html;
   });
